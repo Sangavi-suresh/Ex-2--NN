@@ -49,14 +49,15 @@ STEP 9:For ‘N ‘ iterations ,do the following:<BR>
 STEP 10:Plot the error for each iteration <BR>
 STEP 11:Print the accuracy<BR>
 # PROGRAM:
-
+```
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-
+```
+```
 class Perceptron:
   def __init__(self,learning_rate=0.1):
     self.learning_rate = learning_rate
@@ -81,14 +82,18 @@ class Perceptron:
 
   def predict(self, x: np.array):
   return np.where(self.f(x) >= 0, 1, -1)
+```
 
+```
   url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 df = pd.read_csv(url, header=None)
 print(df.head())
 
 y = df.iloc[:, 4].values
 x = df.iloc[:, 0:3].values
+```
 
+```
 fig = plt.figure()
 ax = plt.axes(projection='3d')
 ax.set_title('Iris data set')
@@ -104,7 +109,9 @@ ax.scatter(x[100:150, 0], x[100:150, 1], x[100:150, 2], color='green',
          marker='x', s=4, edgecolor='green', label="Iris Virginica")
 plt.legend(loc='upper left')
 plt.show()
+```
 
+```
 x = x[0:100, 0:2] 
 y = y[0:100]
 
@@ -115,7 +122,9 @@ plt.xlabel("Sepal length")
 plt.ylabel("Petal length")
 plt.legend(loc='upper left')
 plt.show()
+```
 
+```
 y = np.where(y == 'Iris-setosa', 1, -1)
 x[:, 0] = (x[:, 0] - x[:, 0].mean()) / x[:, 0].std()
 x[:, 1] = (x[:, 1] - x[:, 1].mean()) / x[:, 1].std()
@@ -129,6 +138,7 @@ plt.plot(range(1, len(classifier.misclassified_samples) + 1),classifier.misclass
 plt.xlabel('Epoch')
 plt.ylabel('Errors')
 plt.show()
+```
 
 # OUTPUT:
 
